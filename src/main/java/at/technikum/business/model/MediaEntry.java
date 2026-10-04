@@ -2,7 +2,7 @@ package at.technikum.business.model;
 
 import java.util.Set;
 
-public abstract class  MediaEntry {
+public abstract class  MediaEntry extends BaseEntity {
     private String title;
     private String description;
     private int releaseYear;
@@ -21,6 +21,7 @@ public abstract class  MediaEntry {
         this.title = title;
         this.description = description;
         this.releaseYear = releaseYear;
+        this.genres = genres;
         this.ageRestriction = ageRestriction;
         this.creator = creator;
     }
