@@ -1,6 +1,7 @@
 package at.technikum.business.model;
 
 import java.time.LocalDateTime;
+import at.technikum.business.exception.RatingException;
 
 public class Rating extends BaseEntity{
     private User user;
@@ -15,6 +16,11 @@ public class Rating extends BaseEntity{
                   String comment) {
 
         super();
+
+        if (stars < 1 || stars > 5) {
+            throw new RatingException("Rating must be between 1 and 5 stars.");
+        }
+
         this.user = user;
         this.mediaEntry = mediaEntry;
         this.stars = stars;
@@ -43,6 +49,10 @@ public class Rating extends BaseEntity{
     }
 
     public void setStars(int stars) {
+        if (stars < 1 || stars > 5) {
+            throw new RatingException("Rating must be between 1 and 5 stars.");
+        }
+
         this.stars = stars;
     }
 

@@ -75,5 +75,18 @@ public class Main {
         System.out.println("Play time: " + game.getPlayTimeInHours() + " hours");
         System.out.println("Creator: " + game.getCreator().getUsername());
         System.out.println("ID: " + game.getId());
+
+        Rating rating = new Rating(
+                user,
+                movie,
+                5,
+                "Very good movie"
+        );
+        System.out.println("\n--- Rating ---");
+        System.out.println("User: " + rating.getUser().getUsername());
+        System.out.println("Media: " + rating.getMediaEntry().getTitle());
+        System.out.println("Stars: " + rating.getStars());
+        System.out.println("Comment: " + rating.getComment());
+        System.out.println("Timestamp: " + rating.getTimestamp());
     }
 }
