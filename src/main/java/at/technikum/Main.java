@@ -2,6 +2,7 @@ package at.technikum;
 
 
 import at.technikum.business.model.*;
+import at.technikum.business.service.MediaService;
 
 import java.util.Set;
 
@@ -88,5 +89,21 @@ public class Main {
         System.out.println("Stars: " + rating.getStars());
         System.out.println("Comment: " + rating.getComment());
         System.out.println("Timestamp: " + rating.getTimestamp());
+
+        MediaService mediaService = new MediaService();
+
+        mediaService.addMedia(movie);
+        mediaService.addMedia(series);
+        mediaService.addMedia(game);
+        System.out.println("\n--- All Media ---");
+
+        for (MediaEntry media : mediaService.getAllMedia()) {
+            System.out.println(media.getTitle());
+        }
+
+        MediaEntry foundMedia = mediaService.getMediaById(movie.getId());
+
+        System.out.println("\n--- Find Media ---");
+        System.out.println("Found: " + foundMedia.getTitle());
     }
 }
