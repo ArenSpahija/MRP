@@ -4,6 +4,8 @@ package at.technikum;
 import at.technikum.business.model.*;
 import at.technikum.business.service.MediaService;
 import at.technikum.business.service.MediaServiceImpl;
+import at.technikum.business.service.RatingService;
+import at.technikum.business.service.RatingServiceImpl;
 
 import java.util.Set;
 
@@ -50,9 +52,7 @@ public class Main {
 
 
         // Movie ausgeben
-        System.out.println("--- Movie ---");
         System.out.println("Title: " + movie.getTitle());
-        System.out.println("Release year: " + movie.getReleaseYear());
         System.out.println("Genres: " + movie.getGenres());
         System.out.println("Length: " + movie.getLengthInMinutes() + " minutes");
         System.out.println("Creator: " + movie.getCreator().getUsername());
@@ -78,18 +78,18 @@ public class Main {
         System.out.println("Creator: " + game.getCreator().getUsername());
         System.out.println("ID: " + game.getId());
 
-        Rating rating = new Rating(
+        Rating rating1 = new Rating(
                 user,
                 movie,
                 5,
                 "Very good movie"
         );
         System.out.println("\n--- Rating ---");
-        System.out.println("User: " + rating.getUser().getUsername());
-        System.out.println("Media: " + rating.getMediaEntry().getTitle());
-        System.out.println("Stars: " + rating.getStars());
-        System.out.println("Comment: " + rating.getComment());
-        System.out.println("Timestamp: " + rating.getTimestamp());
+        System.out.println("User: " + rating1.getUser().getUsername());
+        System.out.println("Media: " + rating1.getMediaEntry().getTitle());
+        System.out.println("Stars: " + rating1.getStars());
+        System.out.println("Comment: " + rating1.getComment());
+        System.out.println("Timestamp: " + rating1.getTimestamp());
 
         MediaService mediaService = new MediaServiceImpl();
 
@@ -106,6 +106,29 @@ public class Main {
 
         System.out.println("\n--- Find Media ---");
         System.out.println("Found: " + foundMedia.getTitle());
+
+
+        RatingService ratingService = new RatingServiceImpl();
+
+
+
+        Rating rating2 = new Rating(
+                user,
+                movie,
+                4,
+                "Great movie"
+        );
+
+        ratingService.addRating(rating1);
+        ratingService.addRating(rating2);
+
+        System.out.println("--- Ratings ---");
+
+        for (Rating rating : ratingService.getRatingsByMedia(movie)) {
+            System.out.println(
+                    rating.getStars() + " stars - " + rating.getComment()
+            );
+        }
 
 
     }
