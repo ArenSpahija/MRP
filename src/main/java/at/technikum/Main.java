@@ -2,10 +2,7 @@ package at.technikum;
 
 
 import at.technikum.business.model.*;
-import at.technikum.business.service.MediaService;
-import at.technikum.business.service.MediaServiceImpl;
-import at.technikum.business.service.RatingService;
-import at.technikum.business.service.RatingServiceImpl;
+import at.technikum.business.service.*;
 
 import java.util.Set;
 
@@ -129,6 +126,16 @@ public class Main {
                     rating.getStars() + " stars - " + rating.getComment()
             );
         }
+
+
+        UserService userService = new UserServiceImpl();
+
+        userService.addUser(user);
+
+        User foundUser = userService.getUserByUsername("aren");
+
+        System.out.println("--- User ---");
+        System.out.println("Found user: " + foundUser.getUsername());
 
 
     }
