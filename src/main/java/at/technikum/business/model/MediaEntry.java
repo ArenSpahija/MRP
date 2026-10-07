@@ -10,12 +10,7 @@ public abstract class  MediaEntry extends BaseEntity {
     private User creator;
     private Set<Genre> genres;
 
-    public MediaEntry(String title,
-                      String description,
-                      int releaseYear,
-                      Set<Genre> genres,
-                      int ageRestriction,
-                      User creator) {
+    public MediaEntry(String title, String description, int releaseYear, Set<Genre> genres, int ageRestriction, User creator) {
 
         super();
         this.title = title;

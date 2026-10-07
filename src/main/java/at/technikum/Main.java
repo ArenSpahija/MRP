@@ -3,6 +3,7 @@ package at.technikum;
 
 import at.technikum.business.model.*;
 import at.technikum.business.service.MediaService;
+import at.technikum.business.service.MediaServiceImpl;
 
 import java.util.Set;
 
@@ -90,7 +91,7 @@ public class Main {
         System.out.println("Comment: " + rating.getComment());
         System.out.println("Timestamp: " + rating.getTimestamp());
 
-        MediaService mediaService = new MediaService();
+        MediaService mediaService = new MediaServiceImpl();
 
         mediaService.addMedia(movie);
         mediaService.addMedia(series);
@@ -105,5 +106,7 @@ public class Main {
 
         System.out.println("\n--- Find Media ---");
         System.out.println("Found: " + foundMedia.getTitle());
+
+
     }
 }

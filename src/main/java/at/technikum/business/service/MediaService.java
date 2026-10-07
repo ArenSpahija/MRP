@@ -1,33 +1,22 @@
 package at.technikum.business.service;
 
+import at.technikum.business.model.Genre;
 import at.technikum.business.model.MediaEntry;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class MediaService {
-    private final List<MediaEntry> mediaEntries;
+public interface MediaService {
+    void addMedia(MediaEntry mediaEntry);
 
-    public MediaService() {
-        this.mediaEntries = new ArrayList<>();
-    }
+    List<MediaEntry> getAllMedia();
 
-    public void addMedia(MediaEntry mediaEntry) {
-        mediaEntries.add(mediaEntry);
-    }
+    MediaEntry getMediaById(UUID id);
 
-    public List<MediaEntry> getAllMedia() {
-        return mediaEntries;
-    }
+    List<MediaEntry> getMediaByGenre(Genre genre);
 
-    public MediaEntry getMediaById(UUID id) {
-        for (MediaEntry media : mediaEntries) {
-            if (media.getId().equals(id)) {
-                return media;
-            }
-        }
+    List<MediaEntry> getMediaByReleaseYear(int releaseYear);
 
-        return null;
-    }
+    List<String> getMediaTitles();
 }
+
