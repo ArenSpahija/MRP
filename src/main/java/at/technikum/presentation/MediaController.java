@@ -1,5 +1,6 @@
 package at.technikum.presentation;
 
+import at.technikum.business.model.Genre;
 import at.technikum.business.model.MediaEntry;
 import at.technikum.business.service.MediaService;
 
@@ -23,5 +24,17 @@ public class MediaController {
 
     public MediaEntry getMediaById(UUID id) {
         return mediaService.getMediaById(id);
+    }
+
+    public List<MediaEntry> getMediaByGenre(Genre genre) {
+        return mediaService.getMediaByGenre(genre);
+    }
+
+    public List<MediaEntry> getMediaByReleaseYear(int releaseYear) {
+        return mediaService.getMediaByReleaseYear(releaseYear);
+    }
+
+    public List<String> getMediaTitles() {
+        return mediaService.getMediaTitles();
     }
 }

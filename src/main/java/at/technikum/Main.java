@@ -81,5 +81,24 @@ public class Main {
             );
         }
 
+        System.out.println("\n--- Action Movies ---");
+
+        for (MediaEntry media : mediaController.getMediaByGenre(Genre.ACTION)) {
+            System.out.println(media.getTitle());
+        }
+
+        System.out.println("\n--- Media from 2010 ---");
+
+        for (MediaEntry media : mediaController.getMediaByReleaseYear(2010)) {
+            System.out.println(media.getTitle());
+        }
+
+        System.out.println("\n--- Media Titles ---");
+
+        for (String title : mediaController.getMediaTitles()) {
+            System.out.println(title);
+        }
+
+
     }
 }
