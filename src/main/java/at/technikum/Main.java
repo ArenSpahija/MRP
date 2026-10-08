@@ -100,5 +100,13 @@ public class Main {
         }
 
 
+        System.out.println("\n--- Search Media ---");
+
+        for (MediaEntry media : mediaController.searchMediaByTitle("bad")) {
+            System.out.println(media.getTitle());
+        }
+
+
+
     }
 }

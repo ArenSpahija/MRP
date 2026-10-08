@@ -37,4 +37,8 @@ public class MediaController {
     public List<String> getMediaTitles() {
         return mediaService.getMediaTitles();
     }
+
+    public List<MediaEntry> searchMediaByTitle(String title) {
+        return mediaService.searchMediaByTitle(title);
+    }
 }

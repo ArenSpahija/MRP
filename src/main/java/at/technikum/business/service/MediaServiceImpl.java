@@ -55,4 +55,12 @@ public class MediaServiceImpl implements MediaService {
                 .map(MediaEntry::getTitle)
                 .toList();
     }
+
+    @Override
+    public List<MediaEntry> searchMediaByTitle(String title) {
+        return mediaEntries.stream()
+                .filter(media -> media.getTitle().toLowerCase()
+                        .contains(title.toLowerCase()))
+                .toList();
+    }
 }

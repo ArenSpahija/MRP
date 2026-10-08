@@ -18,5 +18,7 @@ public interface MediaService {
     List<MediaEntry> getMediaByReleaseYear(int releaseYear);
 
     List<String> getMediaTitles();
+
+    List<MediaEntry> searchMediaByTitle(String title);
 }
 
